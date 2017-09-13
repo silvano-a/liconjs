@@ -1,0 +1,32 @@
+{
+    "name": "liconjs",
+    "version": "0.1.0",
+    "description": "jQuery plugin to create dynamic content overviews",
+    "main": "src/Licon.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/space-monkeys/liconjs.git"
+    },
+    "keywords": [
+      "jQuery",
+      "plugin",
+      "live",
+      "content"
+    ],
+    "author": "spacemonkeys <spacemonkeys@connectholland.nl>",
+    "contributors": [
+        {
+          "name": "Silvano Allemekinders",
+          "email": "silvano@connectholland.nl"
+        },
+        {
+            "name": "Tim Groenenberg",
+            "email": "tim@connectholland.nl"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/space-monkeys/liconjs/issues"
+    },
+    "homepage": "https://github.com/space-monkeys/liconjs#readme"
+}
