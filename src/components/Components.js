@@ -3,7 +3,7 @@
  *
  * @constructor
  */
-Licon.prototype.Adapters = function ()
+Licon.prototype.Components = function ()
 {
 
 };

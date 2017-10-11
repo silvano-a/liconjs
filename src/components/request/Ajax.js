@@ -5,7 +5,7 @@
  * @param settings
  * @constructor
  */
-Licon.prototype.Adapters.prototype.Ajax = function (loader, settings)
+Licon.prototype.Components.prototype.Ajax = function (loader, settings)
 {
     this.settings = settings;
     this.Loader = loader;
@@ -14,7 +14,7 @@ Licon.prototype.Adapters.prototype.Ajax = function (loader, settings)
 /**
  * Executes ajax request to target URL.
  */
-Licon.prototype.Adapters.prototype.Ajax.prototype.load = function ()
+Licon.prototype.Components.prototype.Ajax.prototype.load = function ()
 {
     $.post( this.settings.targetUrl, $.proxy( this.handleRequestComplete, this));
 };
@@ -24,7 +24,7 @@ Licon.prototype.Adapters.prototype.Ajax.prototype.load = function ()
  *
  * @param data
  */
-Licon.prototype.Adapters.prototype.Ajax.prototype.handleRequestComplete = function (data)
+Licon.prototype.Components.prototype.Ajax.prototype.handleRequestComplete = function (data)
 {
     this.Loader.RequestManagerCallback(data);
 };

@@ -5,7 +5,7 @@
  * @param settings
  * @constructor
  */
-Licon.prototype.Adapters.prototype.Replace = function (loader, settings)
+Licon.prototype.Components.prototype.Append = function (loader, settings)
 {
     this.settings = settings;
     this.Loader = loader;
@@ -16,9 +16,9 @@ Licon.prototype.Adapters.prototype.Replace = function (loader, settings)
  *
  * @param content
  */
-Licon.prototype.Adapters.prototype.Replace.prototype.showContent = function (content)
+Licon.prototype.Components.prototype.Append.prototype.showContent = function (content)
 {
-    this.settings.$element.html(content);
+    this.$contentWrapper.append(content);
 };
 
 /**
@@ -26,7 +26,7 @@ Licon.prototype.Adapters.prototype.Replace.prototype.showContent = function (con
  *
  * @param settings
  */
-Licon.prototype.Adapters.prototype.Replace.prototype.createStage = function (settings)
+Licon.prototype.Components.prototype.Append.prototype.createStage = function (settings)
 {
     this.$liconWrapper = $("<div/>", {
         class : 'licon-js-wrapper'
@@ -38,6 +38,18 @@ Licon.prototype.Adapters.prototype.Replace.prototype.createStage = function (set
 
     this.$liconWrapper.html(this.$contentWrapper);
 
+    // Load the navigation into the wrapper
     this.$liconWrapper[settings.navigationLocation](settings.$navigation);
+    
+    this.settings.$element.trigger({
+        type: 'licon-navigation-preloaded',
+        navigation: settings.$navigation
+    });
+
     this.settings.$element.html(this.$liconWrapper);
+    this.settings.$element.trigger({
+        type: 'licon-stage-loaded',
+        stage: this.$liconWrapper
+    });
 };
+

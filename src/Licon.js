@@ -7,7 +7,7 @@ function Licon()
 {
     this.settings = {
         requestType : 'Ajax',
-        contentHandler : 'Replace',
+        contentHandler : 'Append',
         navigationType: 'Scrolltrigger',
         targetUrl : false
     };
