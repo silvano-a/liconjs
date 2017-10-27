@@ -1,5 +1,5 @@
 /**
- * Registers the prototype for adapters
+ * Registers the prototype for adapters.
  *
  * @constructor
  */

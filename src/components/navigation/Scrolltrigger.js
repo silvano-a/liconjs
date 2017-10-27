@@ -1,8 +1,10 @@
 /**
- * Adapter which 
+ * Adapter which will implement navigation in the form
+ * of a trigger which loads when visible in the view.
  *
- * @param loader
+ * @param Loader
  * @param settings
+ *
  * @constructor
  */
 Licon.prototype.Components.prototype.Scrolltrigger = function (Loader, settings)
@@ -20,7 +22,6 @@ Licon.prototype.Components.prototype.Scrolltrigger = function (Loader, settings)
             'data-licon-id' : this.settings.$element.attr('data-licon-id')
         });
 
-
     this.settings.$element.on('licon-navigation-preloaded', $.proxy(this.stageLoaded, this));
 };
 
@@ -37,7 +38,13 @@ Licon.prototype.Components.prototype.Scrolltrigger.prototype.getNavigation = fun
     }
 };
 
-
+/**
+ * The function which is called upon when the stage is pre-loaded.
+ *
+ * @listen {licon-navigation-preloaded}
+ *
+ * @param e.LiconPreload
+ */
 Licon.prototype.Components.prototype.Scrolltrigger.prototype.stageLoaded = function (e)
 {
     this.active = true;
@@ -46,21 +53,31 @@ Licon.prototype.Components.prototype.Scrolltrigger.prototype.stageLoaded = funct
     $(window).on('scroll.Licon', $.proxy(this.scrollEventHandler, this))
 };
 
+/**
+ *  Manual page load function.
+ *
+ * @listen {Licon.compoment.Scrolltrigger.click}
+ *
+ * @param e.click
+ */
 Licon.prototype.Components.prototype.Scrolltrigger.prototype.clickEventHandler = function (e)
 {
-    console.log('click!');
-    if(this.active === false)
-    {
+    if (this.active === false) {
         return;
     }
     this.active = false;
     this.checkForNextPage();
 };
 
+/**
+ *  Listens to every scroll tick.
+ *
+ * @listen {scroll.Licon}
+ * @param e.scroll
+ */
 Licon.prototype.Components.prototype.Scrolltrigger.prototype.scrollEventHandler = function (e)
 {
-    console.log(this);
-    if(this.active === false) {
+    if (this.active === false) {
         return;
     }
 
@@ -72,7 +89,6 @@ Licon.prototype.Components.prototype.Scrolltrigger.prototype.scrollEventHandler 
 
     var documentTop = $(window).scrollTop();
     var documentBottom = documentTop + $(window).height();
-
     var elementTop = $loader.offset().top;
 
     if ((elementTop <= documentBottom) && (elementTop >= documentTop) && this.loading == false) {
@@ -81,9 +97,11 @@ Licon.prototype.Components.prototype.Scrolltrigger.prototype.scrollEventHandler 
     }
 };
 
+/**
+ * checks if there is a next page availlable.
+ */
 Licon.prototype.Components.prototype.Scrolltrigger.prototype.checkForNextPage = function ()
 {
-    console.log('yo');
     if(this.contentFinished === false)
     {
         this.Loader.setRequestData(this.pageData);

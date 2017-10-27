@@ -1,5 +1,5 @@
 /**
- * Licon constructor
+ * Licon constructor.
  *
  * @constructor
  */
@@ -21,7 +21,7 @@ function Licon()
  * @param {*|jQuery|HTMLElement} $object
  * @param {Object} settings
  */
-Licon.prototype.handleCall = function($object, settings)
+Licon.prototype.handleCall = function ($object, settings)
 {
     settings.$element = $object;
 

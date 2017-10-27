@@ -20,8 +20,6 @@ Licon.prototype.Loader.prototype.initialize = function ()
 {
     this.Components = new this.Application.Components();
 
-    console.log(this.Components);
-
     this.initializeComponent('RequestManager', this.settings.requestType);
     this.initializeComponent('ContentManager', this.settings.contentHandler);
 
@@ -68,4 +66,3 @@ Licon.prototype.Loader.prototype.RequestManagerCallback = function (data)
 {
     this.components['ContentManager'].showContent(data);
 };
-

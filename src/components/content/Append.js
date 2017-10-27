@@ -3,6 +3,7 @@
  *
  * @param loader
  * @param settings
+ *
  * @constructor
  */
 Licon.prototype.Components.prototype.Append = function (loader, settings)
@@ -12,7 +13,7 @@ Licon.prototype.Components.prototype.Append = function (loader, settings)
 };
 
 /**
- * shows the content.
+ * Shows the content.
  *
  * @param content
  */
